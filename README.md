@@ -63,6 +63,7 @@ $ cubepack ./
 
 
 ####输出文件(myapp.js)
+
 ```javascript
     class Foo {
         static get text() {
