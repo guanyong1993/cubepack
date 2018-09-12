@@ -62,7 +62,7 @@ $ cubepack ./
     ```
 
 
-####输出文件
+#### 输出文件
 - myapp.js
     ```javascript
     class Foo {
