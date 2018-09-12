@@ -18,14 +18,14 @@ $ cubepack ./
 #### 为了简化流程, cubepack 直接将配置项集成在项目的 package.json 中
 
 ```json
-    {
-      "name": "myapp",
-      "cubepack": {
-        "namespace": "MyApp",
-        "compatible": false,
-        "minify": false
-      }
-    }
+{
+  "name": "myapp",
+  "cubepack": {
+    "namespace": "MyApp",
+    "compatible": false,
+    "minify": false
+  }
+}
 ```
 
 #### 配置项属性
@@ -37,34 +37,34 @@ $ cubepack ./
 
 #### 示例应用
 - foo.js
-```javascript
+    ```javascript
     export class Foo {
         static get text() {
             return 'Hello ';
         }
     }
-```
+    ```
 
 - bar.js
-```javascript
+    ```javascript
     export default {
         text: 'World'
     }
-```
+    ```
 
 - index.js
-```javascript
+    ```javascript
     import {Foo} from "./foo.js";
     import Bar from "./bar.js"
-    
+
     const text = Foo.text + Bar.text;
     console.log(text);      // print "Hello World"
-```
+    ```
 
 
-####输出文件(myapp.js)
-
-```javascript
+####输出文件
+- myapp.js
+    ```javascript
     class Foo {
         static get text() {
             return 'Hello ';
@@ -75,4 +75,4 @@ $ cubepack ./
     };
     const text = Foo.text + Bar.text;
     console.log(text);      // print "Hello World"
-```
+    ```
