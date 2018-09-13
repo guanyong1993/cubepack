@@ -8,5 +8,8 @@
   },
   "bin": {
     "cubepack": "./bin/cubepack.js"
+  },
+  "scripts": {
+    "test": "node bin/cubepack.js ./examples/browser"
   }
 }

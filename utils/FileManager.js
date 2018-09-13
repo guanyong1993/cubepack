@@ -47,6 +47,10 @@ const FileManager = {
 
     resolve(a, b) {
         return pt.resolve(a, b).replace(/\\/g, '/');
+    },
+
+    mkdir(path) {
+        if (!fs.existsSync(path)) fs.mkdirSync(path);
     }
 };
 

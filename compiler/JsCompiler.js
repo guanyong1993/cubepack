@@ -54,9 +54,7 @@ class JsCompiler extends Compiler {
     }
 
     render() {
-        const src = this.path + 'src';
         const dist = this.path + 'dist/' + this.properties.name;
-
 
         let boot = this.path + 'index.js';
         this.handle(boot);
@@ -69,13 +67,15 @@ class JsCompiler extends Compiler {
                 content = content.replace(dep.source, 'let ' + dep.name + ' = cubepack_require(' + this.modules.get(dep.path).index + ')');
             }
             if (key === boot) {
-                bootContent = 'scope.' + this.properties.namespace + '=(function(){\n' + content+ '\n})();';
+                let namespace = this.properties.namespace;
+                let scope = typeof namespace === 'string' ? 'window.' + namespace : 'module.exports';
+                bootContent = scope + '=(function(){\n' + content+ '\n})();';
             } else {
                 result.push('function () {\n' + content+ '\n}');
             }
         });
 
-        let code = '(function(scope){let cubepack_require=function(index){return cubepack_modules[index]();};let cubepack_modules=[' + result.join(', ') + '];' + bootContent + '})(window);';
+        let code = '(function(){let cubepack_require=function(index){return cubepack_modules[index]();};let cubepack_modules=[' + result.join(', ') + '];' + bootContent + '})();';
         let presets = this.properties.compatible === false ? [] : ['env'];
         if (this.properties.minify !== false) {
             presets.push(["minify", {

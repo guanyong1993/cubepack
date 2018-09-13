@@ -30,7 +30,7 @@ $ cubepack ./
 
 #### 配置项属性
 
-- namespace `String` - 模块命名空间
+- namespace `String` - 模块命名空间，用于浏览器环境下的全局变量，若用于 require 导入可不设置此项
 - compatible `Boolean` - 是否启用兼容模式，开启兼容模式会将代码转换为 ES5，默认关闭
 - minify `Boolean` - 是否启用代码压缩，默认启用
 
@@ -54,8 +54,8 @@ $ cubepack ./
 
 - index.js
     ```javascript
-    import {Foo} from "./foo.js";
-    import Bar from "./bar.js"
+    import {Foo} from "./foo";
+    import Bar from "./bar"
 
     const text = Foo.text + Bar.text;
     console.log(text);      // print "Hello World"

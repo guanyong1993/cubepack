@@ -10,6 +10,9 @@ module.exports = {
         properties.name = project.name;
         properties.version = project.version;
 
+        // 生成输出目录
+        FileManager.mkdir(path + 'dist/');
+
         let compiler = new JsCompiler(path, properties);
         compiler.render();
     }
