@@ -1,5 +1,7 @@
-# CubePack 模块化打包工具
+# CubePack
 
+
+一个轻量级的 Javascript 模块管理工具
 
 ## 安装
 
