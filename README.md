@@ -1,7 +1,9 @@
 # CubePack
 
 
-一个轻量级的 Javascript 模块管理工具
+一个轻量级的 Javascript 模块管理工具。
+
+没有繁琐的配置过程，只需三步，你就可以快速的打包你的项目了。
 
 ## 安装
 
@@ -11,8 +13,17 @@ $ npm install --save-dev cubepack
 
 ## 打包你的项目
 
+添加命令项到你的 package.json 中
+```json
+    {
+      "scripts": {
+        "build": "cubepack ./"
+      }
+    }
+```
+运行打包命令
 ```sh
-$ cubepack ./
+$ npm run build
 ```
 
 ## 配置项
