@@ -56,7 +56,7 @@ class JsCompiler extends Compiler {
     render() {
         const dist = this.path + 'dist/' + this.properties.name;
 
-        let boot = this.path + 'index.js';
+        let boot = this.path + (this.properties.main || 'index.js');
         this.handle(boot);
 
 
